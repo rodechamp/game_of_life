@@ -45,7 +45,7 @@ class Game():
 
 
     ###########################################
-    # timestepping
+    # grid initializing
     ###########################################
 
 
@@ -217,7 +217,7 @@ class Game():
     
 
 
-    def timestep_grid(self, rules:str='basic') -> None:
+    def timestep_grid(self, rules:"str"='basic') -> None:
         """Performs a timestep for the grid, where it is checked if a cell lives for each cell.
         """
 
@@ -241,6 +241,25 @@ class Game():
         """
         self.n_cells_over_time.append(self.n_alive_cells)
 
+
+
+    def timestepping(self, n_timesteps:"int", rules:"str"='basic', printing:"bool"=False) -> None:
+        """Timesteps grid multiple times for convenience.
+
+        Args:
+            n_timesteps (int): Number of timesteps.
+            rules (str, optional): Used rules. Defaults to 'basic'.
+            printing (bool, optional): Turns on printing each timestep to console. Defaults to False.
+
+        Returns:
+            None
+        """
+        for _ in range(n_timesteps):
+            self.timestep_grid(rules=rules)
+            
+            if printing: self.print_to_console()
+
+        return None
 
     ###########################################
     # printing / plotting
