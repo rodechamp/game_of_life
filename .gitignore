@@ -10,3 +10,6 @@ __pycache__/
 # Other
 .vscode/
 data/
+
+# keep readme images
+!readme_example/

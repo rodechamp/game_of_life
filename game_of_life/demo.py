@@ -81,3 +81,34 @@ def compare_rules(n_timesteps:"int"=100, length:"int"=50, height:"int"=30, p_liv
     fig.savefig('rule_comparison.png', dpi=200, bbox_inches='tight')
     
     return None
+
+
+
+
+def main() -> None:
+    print('DEMONSTRATING CONWAYS GAME OF LIFE')
+
+    # make results reproducible
+    randomSeed:"int" = 12345
+    np.random.seed(randomSeed)
+    print('- random seed is {0}'.format(randomSeed))
+
+
+    # saving images in ...
+    saveDirectory:"str" = 'readme_example'
+
+    print('- results will be saved in {0}'.format(saveDirectory))
+
+
+
+    print('- initializing game')
+    game = Game(length=20, height=20)
+    game.randomize_grid()
+
+    game.plot_image(saveDirectory)
+    
+    return None
+
+
+if __name__ == '__main__':
+    main()

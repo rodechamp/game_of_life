@@ -15,3 +15,23 @@ This simple set of rules results in complex, emergent behavior.
 - Use PNG images as input for your system.
 - The `game_of_life.Game` class also contains several analytics tools and plotting capabilities.
 - Easy to use, several use cases are demonstratet in `game_of_life.demo`.
+
+## Example usage
+
+An example can be found in `game_of_life.__main__`, which can be executed via
+
+```bash
+python -m game_of_life
+```
+
+in the command line. It initializes the following (randomized) grid:
+
+![Initial conditions](readme_example/timestep_000000.png)
+
+The first timestep yields:
+
+![Timestep 1](readme_example/timestep_000001.png)
+
+The second timestep yields:
+
+![Timestep 1](readme_example/timestep_000002.png)

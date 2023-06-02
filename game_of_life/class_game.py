@@ -21,6 +21,8 @@ class Game():
         self.timesteps:"int" = 0
         self.n_cells_over_time:"list[int]" = []
 
+        self.seed:"int|None" = None
+
 
         # using specified grid
         if startingGrid is not None:
@@ -47,6 +49,13 @@ class Game():
     ###########################################
     # grid initializing
     ###########################################
+
+    def set_seed(self, seed:"int") -> None:
+        """Sets the seed for all random operations
+        """
+        self.seed = seed
+        np.random.seed(seed)
+        return None
 
 
     def randomize_grid(self, p_live:"float"=0.1) -> None:
