@@ -35,3 +35,9 @@ The first timestep yields:
 The second timestep yields:
 
 ![Timestep 1](readme_example/timestep_000002.png)
+
+## Rulesets
+
+There are two rulesets available, _basic_ (neighbor detection on simple cubic grid, maximum of 4 neighbors) and _experimental_ (neighbor detection on simple cubic grid + diagonals, maximum of 8 neighbords). With random initial conditions, the percentage of live cells yields the following:
+
+![Rule Sets](readme_example/rule_comparison.png)

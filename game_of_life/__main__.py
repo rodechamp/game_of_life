@@ -3,10 +3,12 @@ python -m game_of_life
 """
 
 from .class_game import Game
+from .demo import compare_rules
+
+
+
 
 print('DEMONSTRATING CONWAYS GAME OF LIFE')
-
-
 
 
 # saving images in ...
@@ -46,3 +48,15 @@ print('- performing a timestep (again)')
 game.timestep_grid()
 print('- saving results (again)')
 game.plot_image(saveDirectory)
+
+
+
+# compare rulesets
+print('- comparing normal and experimental rules')
+compare_rules(
+    n_timesteps=100, 
+    length=100, 
+    height=100, 
+    p_live=0.2, 
+    saveDir=saveDirectory
+    )

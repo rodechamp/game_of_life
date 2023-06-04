@@ -36,7 +36,13 @@ def randomize_grid(n_timesteps:"int"=5, rules:"str"='basic') -> None:
         
 
 
-def compare_rules(n_timesteps:"int"=100, length:"int"=50, height:"int"=30, p_live:"float"=0.5) -> None:
+def compare_rules(
+        n_timesteps:"int"=100, 
+        length:"int"=50, 
+        height:"int"=30, 
+        p_live:"float"=0.5,
+        saveDir:"str"='.'
+        ) -> None:
     """Compares survivability of cells depending on the ruleset. Plots a graph of the results
 
     Args:
@@ -44,6 +50,7 @@ def compare_rules(n_timesteps:"int"=100, length:"int"=50, height:"int"=30, p_liv
         length (int, optional): Grid size in x. Defaults to 50.
         height (int, optional): Grid size in y. Defaults to 30.
         p_live (float, optional): Grid size in y. Defaults to 0.5.
+        saveDir (str, optional): Folder, where results grafic is saved to. Defaults to '.'
     Returns:
         None
     """
@@ -65,7 +72,9 @@ def compare_rules(n_timesteps:"int"=100, length:"int"=50, height:"int"=30, p_liv
     
     
     # plotting
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(
+        figsize=(3,2.5)
+    )
     
     ls_list = ['-', '--']
     for ylist, rules, ls in zip(alive_cells_list, ruleset_list, ls_list):
@@ -78,7 +87,8 @@ def compare_rules(n_timesteps:"int"=100, length:"int"=50, height:"int"=30, p_liv
     
     ax.set_xlim(0,n_timesteps)
     
-    fig.savefig('rule_comparison.png', dpi=200, bbox_inches='tight')
+    saveName = '{0}/rule_comparison.png'.format(saveDir)
+    fig.savefig(saveName, dpi=100, bbox_inches='tight')
     
     return None
 
