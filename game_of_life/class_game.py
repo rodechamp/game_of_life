@@ -2,6 +2,8 @@ import numpy as np
 from PIL import Image
 import os
 
+from .class_progressbar import ProgressBar
+
 import matplotlib.pyplot as plt
 
 class Game():
@@ -263,10 +265,13 @@ class Game():
         Returns:
             None
         """
-        for _ in range(n_timesteps):
+
+        pb = ProgressBar(total=n_timesteps)
+        pb.print(iteration=0)
+
+        for ii in range(n_timesteps):
             self.timestep_grid(rules=rules)
-            
-            if printing: self.print_to_console()
+            pb.print(iteration=ii+1)
 
         return None
 

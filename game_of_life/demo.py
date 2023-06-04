@@ -60,6 +60,7 @@ def compare_rules(
     
     
     for rules in ruleset_list:
+        print('timestepping rules: {0}'.format(rules))
         # initialize
         game = Game(length=length, height=height)
         game.randomize_grid(p_live=p_live)
